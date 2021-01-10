@@ -9,12 +9,13 @@ rails3 = Gem::Dependency.new('rails', '~>3.0')
 RAILS_VERSION_IS_3 = rails3 =~ deps['rails']
 
 gem "holidays", "~>1.0.3"
-gem "icalendar"
-gem "nokogiri", "< 1.6.0"
+gem "icalendar", "<2.6" # the last version supporting Ruby 2.2
+gem "nokogiri", ">= 1.6.7.2" # match with redmine 2.6
 gem "open-uri-cached"
-gem "prawn"
+gem "prawn","<2.3" # the last version supporting Ruby 2.2
 gem 'json'
 gem "system_timer" if RUBY_VERSION =~ /^1\.8\./ && RUBY_PLATFORM =~ /darwin|linux/
+gem "ttfunk", "<1.6" # the last version supporting Ruby 2.2, used by prawn
 
 group :development do
   gem "inifile"
